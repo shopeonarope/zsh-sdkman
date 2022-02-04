@@ -52,7 +52,9 @@ __init_plugin_folder() {
 ########################################################
 
 # "sdk" command is not found if we don't do this
-source "$SDKMAN_DIR_LOCAL/bin/sdkman-init.sh"
+if [ -s "$SDKMAN_DIR_LOCAL/bin/sdkman-init.sh" ]; then
+  source "$SDKMAN_DIR_LOCAL/bin/sdkman-init.sh"
+fi
 
 # Initialize files with available candidate list and currently installed candidates
 _init_zsh-sdkman_plugin() {
